@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+
+
+<script>
+
+	const pressed = [];
+	const secretCode = 'abby';
+
+	window.addEventListener('keyup', (e) => {
+	
+		// add pressed key to array
+		pressed.push(e.key);
+
+		// array should only be length of secret word
+		pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+
+		// check the array for secret word
+		if (pressed.join('').includes(secretCode)) {
+			console.log('you did it!');
+			cornify_add();	// add unicorns & rainbows
+		}
+	});
+
+</script>
+
+
+</body>
+</html>
